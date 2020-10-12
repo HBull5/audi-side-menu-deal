@@ -1,0 +1,172 @@
+/* General Styles */
+:root {
+	--white: #fff;
+	--black: #333;
+	--font: sans-serif;
+	--width: 1000px;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: var(--font);
+	color: var(--black);
+	overflow-x: hidden; /*? Remove horizontal scroll bar */
+}
+
+/* Nav Styles */
+nav {
+	display: flex;
+	justify-content: flex-end;
+	position: fixed;
+	width: 100%;
+	z-index: 2;
+}
+
+nav .burger {
+	height: 50px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 40px;
+	margin: 0 1rem;
+	cursor: pointer;
+}
+
+nav .burger span {
+	background: var(--black);
+	height: 5px;
+	width: 100%;
+	border-radius: 5px;
+	margin-bottom: 0.4rem;
+	position: relative;
+}
+
+nav .burger span:last-child {
+	margin-bottom: 0;
+}
+
+/* Menu Styles */
+.menu {
+	/* display: none; */
+	background: var(--white);
+	color: var(--black);
+	height: 100vh;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: absolute; /*? Break out of document flow */
+	transform: translateX(100%); /*? Move it way the fuck off screen */
+	z-index: 1;
+	border-left: 2px solid var(--black);
+}
+
+.menu ul {
+	list-style: none;
+	font-size: 2rem;
+	text-align: center;
+}
+
+.menu ul li {
+	margin-bottom: 1rem;
+}
+
+/* Content Styles */
+.content {
+	display: flex;
+	height: 100vh;
+	flex-direction: column;
+	justify-content: center;
+	max-width: var(--width);
+	margin: 0 auto;
+}
+
+.content h1 {
+	margin-bottom: 1rem;
+	text-decoration: underline;
+}
+
+/* Animations */
+.show {
+	animation-name: show;
+	animation-duration: 2s;
+	animation-fill-mode: forwards;
+}
+
+.hide {
+	animation-name: hide;
+	animation-duration: 2s;
+	animation-fill-mode: forwards;
+}
+
+.rotate-normal {
+	animation-name: rotate-normal;
+	animation-duration: 2s;
+	animation-fill-mode: forwards;
+}
+
+.top {
+	animation-name: top;
+	animation-duration: 1s;
+	animation-fill-mode: forwards;
+}
+
+.middle {
+	display: none;
+}
+
+.bottom {
+	animation-name: bottom;
+	animation-duration: 1s;
+	animation-fill-mode: forwards;
+}
+
+@keyframes show {
+	0% {
+		transform: translateX(100%);
+	}
+
+	100% {
+		transform: translateX(0%);
+	}
+}
+
+@keyframes hide {
+	0% {
+		transform: translateX(0%);
+	}
+
+	100% {
+		transform: translateX(100%);
+	}
+}
+
+@keyframes top {
+	0% {
+		transform: rotate(0deg);
+		top: 0%;
+	}
+
+	100% {
+		transform: rotate(45deg);
+		top: 25%;
+	}
+}
+
+@keyframes bottom {
+	0% {
+		transform: rotate(0deg);
+		bottom: 0%;
+	}
+
+	100% {
+		transform: rotate(-45deg);
+		bottom: 0%;
+	}
+}
